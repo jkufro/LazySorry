@@ -10,6 +10,7 @@ import SwiftUI
 
 struct CardView: View {
     let imageName: String
+    @State private var offset = CGSize.zero
 
     var body: some View {
         ZStack {
@@ -19,6 +20,19 @@ struct CardView: View {
                 Image(imageName)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
+                // https://www.hackingwithswift.com/books/ios-swiftui/moving-views-with-draggesture-and-offset
+                .offset(x: offset.width, y: offset.height)
+                .gesture(
+                    DragGesture()
+                        .onChanged { gesture in
+                            self.offset = gesture.translation
+                        }
+                        .onEnded { _ in
+                            self.offset = CGSize.zero
+                        }
+
+                )
+                .animation(.spring())
             }
         }
     }

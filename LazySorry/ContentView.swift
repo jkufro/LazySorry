@@ -24,7 +24,7 @@ struct ContentView: View {
                         .padding()
                         .shadow(radius: 10)
                 }
-                .onTapGesture(count: 1) {
+                .onTapGesture {
                     self.lazySorryVM.drawCardTrigger()
                 }
             }
