@@ -9,8 +9,36 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var lazySorryVM: LazySorryViewModel
+
+    init() {
+        lazySorryVM = LazySorryViewModel()
+    }
+
     var body: some View {
-        Text("Hello, World!")
+        VStack {
+            Spacer()
+            ZStack {
+                ForEach(lazySorryVM.drawnCards, id: \.self) {
+                    CardView(imageName: $0)
+                        .padding()
+                        .shadow(radius: 10)
+                }
+                .onTapGesture(count: 1) {
+                    self.lazySorryVM.drawCardTrigger()
+                }
+            }
+            Spacer()
+            HStack {
+                Spacer()
+                Text(
+                    String("\(lazySorryVM.deck.numPlayingCardsLeft()) cards left until shuffle")
+                )
+                .font(.custom("PaytoneOne-Regular", size: 18))
+                Spacer()
+            }
+            Spacer()
+        }
     }
 }
 
