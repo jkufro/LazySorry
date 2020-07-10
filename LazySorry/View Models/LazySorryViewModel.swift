@@ -12,7 +12,7 @@ import AVFoundation
 
 
 class LazySorryViewModel: ObservableObject {
-    static let drawCooldown:Int = 1_000  // milliseconds that must pass between draws
+    static let drawCooldown:Int = 750  // milliseconds that must pass between draws
 
     @Published var deck: Deck
     @Published var drawnCards:[String]  // track a short history of cards drawn
@@ -21,7 +21,7 @@ class LazySorryViewModel: ObservableObject {
 
     init() {
         self.deck = Deck()
-        self.drawnCards = ["", "", "", "sorry"]
+        self.drawnCards = ["", "", "", "", "", "", "sorry"]
     }
 
     func drawCardTrigger() {

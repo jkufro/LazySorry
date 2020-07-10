@@ -19,8 +19,8 @@ struct ContentView: View {
         VStack {
             Spacer()
             ZStack {
-                ForEach(lazySorryVM.drawnCards, id: \.self) {
-                    CardView(imageName: $0)
+                ForEach(0 ..< lazySorryVM.drawnCards.count) {
+                    CardView(imageName: self.lazySorryVM.drawnCards[$0])
                         .padding()
                         .shadow(radius: 10)
                 }
