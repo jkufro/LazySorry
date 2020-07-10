@@ -18,6 +18,14 @@
 		9734C98024B7CE4200026D4A /* LazySorryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9734C97F24B7CE4200026D4A /* LazySorryViewModel.swift */; };
 		9734C98224B7CE8100026D4A /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9734C98124B7CE8100026D4A /* Deck.swift */; };
 		9734C98524B7DA6900026D4A /* PaytoneOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9734C98424B7DA6900026D4A /* PaytoneOne-Regular.ttf */; };
+		9734C9A024B7F00E00026D4A /* pickup_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9734C99824B7F00D00026D4A /* pickup_2.mp3 */; };
+		9734C9A124B7F00E00026D4A /* pickup_4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9734C99924B7F00D00026D4A /* pickup_4.mp3 */; };
+		9734C9A224B7F00E00026D4A /* pickup_6.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9734C99A24B7F00D00026D4A /* pickup_6.mp3 */; };
+		9734C9A324B7F00E00026D4A /* pickup_5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9734C99B24B7F00D00026D4A /* pickup_5.mp3 */; };
+		9734C9A424B7F00E00026D4A /* pickup_7.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9734C99C24B7F00D00026D4A /* pickup_7.mp3 */; };
+		9734C9A524B7F00E00026D4A /* shuffle_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9734C99D24B7F00D00026D4A /* shuffle_1.mp3 */; };
+		9734C9A624B7F00E00026D4A /* pickup_3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9734C99E24B7F00E00026D4A /* pickup_3.mp3 */; };
+		9734C9A724B7F00E00026D4A /* pickup_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9734C99F24B7F00E00026D4A /* pickup_1.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +54,14 @@
 		9734C97F24B7CE4200026D4A /* LazySorryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazySorryViewModel.swift; sourceTree = "<group>"; };
 		9734C98124B7CE8100026D4A /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		9734C98424B7DA6900026D4A /* PaytoneOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "PaytoneOne-Regular.ttf"; path = "../../../assets/font/Paytone_One/PaytoneOne-Regular.ttf"; sourceTree = "<group>"; };
+		9734C99824B7F00D00026D4A /* pickup_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pickup_2.mp3; sourceTree = "<group>"; };
+		9734C99924B7F00D00026D4A /* pickup_4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pickup_4.mp3; sourceTree = "<group>"; };
+		9734C99A24B7F00D00026D4A /* pickup_6.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pickup_6.mp3; sourceTree = "<group>"; };
+		9734C99B24B7F00D00026D4A /* pickup_5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pickup_5.mp3; sourceTree = "<group>"; };
+		9734C99C24B7F00D00026D4A /* pickup_7.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pickup_7.mp3; sourceTree = "<group>"; };
+		9734C99D24B7F00D00026D4A /* shuffle_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = shuffle_1.mp3; sourceTree = "<group>"; };
+		9734C99E24B7F00E00026D4A /* pickup_3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pickup_3.mp3; sourceTree = "<group>"; };
+		9734C99F24B7F00E00026D4A /* pickup_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pickup_1.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +103,7 @@
 		9734C95724B7CAF500026D4A /* LazySorry */ = {
 			isa = PBXGroup;
 			children = (
+				9734C98724B7E9D200026D4A /* Sounds */,
 				9734C98324B7DA4F00026D4A /* Fonts */,
 				9734C97C24B7CC2700026D4A /* Models */,
 				9734C97B24B7CC1C00026D4A /* View Models */,
@@ -149,6 +166,21 @@
 				9734C98424B7DA6900026D4A /* PaytoneOne-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		9734C98724B7E9D200026D4A /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				9734C99F24B7F00E00026D4A /* pickup_1.mp3 */,
+				9734C99824B7F00D00026D4A /* pickup_2.mp3 */,
+				9734C99E24B7F00E00026D4A /* pickup_3.mp3 */,
+				9734C99924B7F00D00026D4A /* pickup_4.mp3 */,
+				9734C99B24B7F00D00026D4A /* pickup_5.mp3 */,
+				9734C99A24B7F00D00026D4A /* pickup_6.mp3 */,
+				9734C99C24B7F00D00026D4A /* pickup_7.mp3 */,
+				9734C99D24B7F00D00026D4A /* shuffle_1.mp3 */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,8 +265,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				9734C96524B7CAFB00026D4A /* LaunchScreen.storyboard in Resources */,
+				9734C9A124B7F00E00026D4A /* pickup_4.mp3 in Resources */,
+				9734C9A324B7F00E00026D4A /* pickup_5.mp3 in Resources */,
 				9734C96224B7CAFB00026D4A /* Preview Assets.xcassets in Resources */,
+				9734C9A524B7F00E00026D4A /* shuffle_1.mp3 in Resources */,
+				9734C9A424B7F00E00026D4A /* pickup_7.mp3 in Resources */,
 				9734C95F24B7CAFB00026D4A /* Assets.xcassets in Resources */,
+				9734C9A024B7F00E00026D4A /* pickup_2.mp3 in Resources */,
+				9734C9A624B7F00E00026D4A /* pickup_3.mp3 in Resources */,
+				9734C9A224B7F00E00026D4A /* pickup_6.mp3 in Resources */,
+				9734C9A724B7F00E00026D4A /* pickup_1.mp3 in Resources */,
 				9734C98524B7DA6900026D4A /* PaytoneOne-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

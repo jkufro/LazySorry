@@ -8,6 +8,8 @@
 
 import Foundation
 import SwiftUI
+import AVFoundation
+
 
 class LazySorryViewModel: ObservableObject {
     static let drawCooldown:Int = 1_000  // milliseconds that must pass between draws
@@ -15,6 +17,7 @@ class LazySorryViewModel: ObservableObject {
     @Published var deck: Deck
     @Published var drawnCards:[String]  // track a short history of cards drawn
     var lastDraw:Int = Int(Date().timeIntervalSince1970 * 1_000)
+    var avPlayer:AVAudioPlayer?
 
     init() {
         self.deck = Deck()
@@ -31,7 +34,9 @@ class LazySorryViewModel: ObservableObject {
         // make sure the deck is not empty
         if (self.deck.isPlayingDeckEmpty()) {
             self.deck.newPlayingDeck()
-            // play shuffle sound?
+            self.playShuffleSound()
+        } else {
+            self.playDrawSound()
         }
 
         // draw a card
@@ -39,11 +44,47 @@ class LazySorryViewModel: ObservableObject {
         self.drawnCards.append(drawnCard)
         self.drawnCards.removeFirst()
         self.lastDraw = Int(Date().timeIntervalSince1970 * 1_000)
-
-        // play draw card sound?
     }
     
     private func isDrawCooledDown() -> Bool {
         return (Int(Date().timeIntervalSince1970 * 1_000) - self.lastDraw) >= LazySorryViewModel.drawCooldown
+    }
+
+    // https://www.hackingwithswift.com/example-code/media/how-to-play-sounds-using-avaudioplayer
+    private func playShuffleSound() {
+        var options:[String] = [
+            "shuffle_1"
+        ]
+        options.shuffle()
+        let resourceName:String = options[0]
+        let path = Bundle.main.path(forResource: resourceName, ofType: "mp3")!
+        let url = URL(fileURLWithPath: path)
+
+        do {
+            self.avPlayer = try AVAudioPlayer(contentsOf: url)
+            self.avPlayer?.play()
+        } catch {
+            // couldn't load file :(
+        }
+    }
+
+    private func playDrawSound() {
+        var options:[String] = [
+            "pickup_3",
+            "pickup_4",
+            "pickup_5",
+            "pickup_6",
+        ]
+        options.shuffle()
+        let resourceName:String = options[0]
+        let path = Bundle.main.path(forResource: resourceName, ofType: "mp3")!
+        let url = URL(fileURLWithPath: path)
+
+        do {
+            self.avPlayer = try AVAudioPlayer(contentsOf: url)
+            self.avPlayer?.play()
+        } catch {
+            // couldn't load file :(
+        }
     }
 }
