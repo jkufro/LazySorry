@@ -21,7 +21,7 @@ class LazySorryViewModel: ObservableObject {
 
     init() {
         self.deck = Deck()
-        self.drawnCards = ["", "", "", "", "", "", "sorry"]
+        self.drawnCards = ["back_of_card", "back_of_card", "back_of_card", "back_of_card", "back_of_card", "back_of_card", "back_of_card"]
     }
 
     func drawCardTrigger() {
