@@ -10,6 +10,8 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var lazySorryVM: LazySorryViewModel
+    @State var topCardRotation:Double = 90.0
+    @State var topCardOffset:CGSize = CGSize(width: 0, height: -300)
 
     init() {
         lazySorryVM = LazySorryViewModel()
@@ -21,11 +23,27 @@ struct ContentView: View {
             ZStack {
                 ForEach(0 ..< lazySorryVM.drawnCards.count) {
                     CardView(imageName: self.lazySorryVM.drawnCards[$0])
-                        .padding()
-                        .shadow(radius: 10)
                 }
+                // https://www.hackingwithswift.com/quick-start/swiftui/how-to-start-an-animation-immediately-after-a-view-appears
+                CardView(imageName: self.lazySorryVM.topCard)
                 .onTapGesture {
+                    self.topCardRotation = 90
+                    self.topCardOffset = CGSize(width: 0, height: -300)
                     self.lazySorryVM.drawCardTrigger()
+                    withAnimation {
+                        self.topCardRotation = 0
+                        self.topCardOffset = CGSize.zero
+                    }
+                }
+                .rotation3DEffect(.degrees(topCardRotation), axis: (x: 1, y: 0.3, z: 0))
+                .offset(x: topCardOffset.width, y: topCardOffset.height)
+                .animation(.easeInOut)
+                .onAppear {
+                    _ = Animation.easeInOut(duration: 0.5)
+                    return withAnimation {
+                        self.topCardRotation = 0
+                        self.topCardOffset = CGSize.zero
+                    }
                 }
             }
             Spacer()

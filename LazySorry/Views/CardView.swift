@@ -10,6 +10,7 @@ import SwiftUI
 
 struct CardView: View {
     let imageName: String
+    @State var rotationDegrees:Double = 0.0
     @State private var offset = CGSize.zero
 
     var body: some View {
@@ -32,6 +33,8 @@ struct CardView: View {
                         }
 
                 )
+                .padding()
+                .shadow(radius: 10)
                 .animation(.spring())
             }
         }
@@ -40,6 +43,6 @@ struct CardView: View {
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(imageName: "1")
+        CardView(imageName: "1", rotationDegrees: 0.0)
     }
 }

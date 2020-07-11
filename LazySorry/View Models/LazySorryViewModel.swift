@@ -16,6 +16,9 @@ class LazySorryViewModel: ObservableObject {
 
     @Published var deck: Deck
     @Published var drawnCards:[String]  // track a short history of cards drawn
+    var topCard:String = "back_of_card"
+    @Published var topCardDegrees:Double = 0.0
+
     var lastDraw:Int = Int(Date().timeIntervalSince1970 * 1_000)
     var avPlayer:AVAudioPlayer?
 
@@ -40,10 +43,12 @@ class LazySorryViewModel: ObservableObject {
         }
 
         // draw a card
-        let drawnCard:String = self.deck.drawCard()
-        self.drawnCards.append(drawnCard)
+        self.topCardDegrees = 90.0
+        self.drawnCards.append(self.topCard)
+        self.topCard = self.deck.drawCard()
         self.drawnCards.removeFirst()
         self.lastDraw = Int(Date().timeIntervalSince1970 * 1_000)
+        self.topCardDegrees = 0.0
     }
     
     private func isDrawCooledDown() -> Bool {
